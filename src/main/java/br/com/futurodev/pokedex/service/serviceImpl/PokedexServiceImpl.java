@@ -43,4 +43,9 @@ public class PokedexServiceImpl implements PokedexService {
         }
     }
 
+    @Override
+    public Optional<Pokemon> buscarPorNumero(Long numero) {
+        return this.pokedexRepository.findById(numero);
+    }
+
 }
