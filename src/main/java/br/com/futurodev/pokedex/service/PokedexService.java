@@ -11,4 +11,6 @@ public interface PokedexService {
     Optional<Pokemon> atualizar(Long numero, Pokemon pokemon);
 
     boolean deletar(Long numero);
+
+    Optional<Pokemon> buscarPorNumero(Long numero);
 }
