@@ -6,6 +6,7 @@ import br.com.futurodev.pokedex.service.PokedexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -46,6 +47,11 @@ public class PokedexServiceImpl implements PokedexService {
     @Override
     public Optional<Pokemon> buscarPorNumero(Long numero) {
         return this.pokedexRepository.findById(numero);
+    }
+
+    @Override
+    public List<Pokemon> listar() {
+        return this.pokedexRepository.findAll();
     }
 
 }

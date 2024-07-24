@@ -2,6 +2,7 @@ package br.com.futurodev.pokedex.service;
 
 import br.com.futurodev.pokedex.models.Pokemon;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface PokedexService {
@@ -13,4 +14,6 @@ public interface PokedexService {
     boolean deletar(Long numero);
 
     Optional<Pokemon> buscarPorNumero(Long numero);
+
+    List<Pokemon> listar();
 }
