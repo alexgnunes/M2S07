@@ -31,4 +31,16 @@ public class PokedexServiceImpl implements PokedexService {
         }
         return Optional.empty();
     }
+
+    @Override
+    public boolean deletar(Long numero) {
+        Optional<Pokemon> response = this.pokedexRepository.findById(numero);
+        if(response.isPresent()) {
+            pokedexRepository.deleteById(numero);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

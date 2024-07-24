@@ -9,4 +9,6 @@ public interface PokedexService {
     Pokemon cadastrar(Pokemon pokemon);
 
     Optional<Pokemon> atualizar(Long numero, Pokemon pokemon);
+
+    boolean deletar(Long numero);
 }

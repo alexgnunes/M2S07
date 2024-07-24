@@ -4,6 +4,7 @@ import br.com.futurodev.pokedex.models.Pokemon;
 import br.com.futurodev.pokedex.service.PokedexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -33,5 +34,11 @@ public class PokedexController {
         Optional<Pokemon> response = pokedexService.atualizar(numero, pokemon);
         return response.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Pokemon> deletar(@PathVariable ("id") Long numero) {
+         return pokedexService.deletar(numero) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    }
+
 }
 
