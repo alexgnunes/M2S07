@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -45,6 +46,12 @@ public class PokedexController {
     public ResponseEntity<Pokemon> buscarPorNumero(@PathVariable ("id") Long numero) {
         Optional<Pokemon> response = pokedexService.buscarPorNumero(numero);
         return response.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Pokemon>> listar() {
+        List<Pokemon> response = pokedexService.listar();
+        return response.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(response);
     }
 
 }
